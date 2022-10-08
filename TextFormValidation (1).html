@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Form Validation</title>
+</head>
+
+<body>
+	<form  name="myform">
+		Name: <input type="text" name="username"  id="uname"><span id="u_small"> </span> <br><br>
+		
+		<input type="submit"  value="Submit">
+	</form>
+	
+	<script>
+
+
+	// var alphaExp = /^[a-zA-Z\s]+$/;
+	// var alphaNumExp = /^[a-zA-Z0-9]+$/;
+	// var alphaNumSpaceExp = /^[a-zA-Z0-9\s]+$/;
+	// var alphaAddExp = /^[a-zA-Z0-9\s,.'-]{3,}$/;
+	// var emailExp = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;	
+
+
+// document.myform.username.addEventListener("keyup", validatedata,false);
+	document.getElementById('uname').addEventListener("keyup", validatedata,false);
+		function validatedata() {
+
+			var ptrn = /^[a-zA-Z\s]+$/;
+			// if (ptrn.test(document.myform.username.value)) {
+			var uname=document.getElementById('uname').value;
+			if (ptrn.test(uname)) 
+			{
+					
+				document.getElementById("u_small").innerHTML = " Username is Valid";
+				document.getElementById("u_small").style.color = "green";
+			} 
+			else {
+				 //document.myform.username.style.backgroundColor = 'red';
+				document.getElementById("u_small").textContent = " *Username is Invalid";
+				document.getElementById("u_small").style.color = "red";
+			}
+		}
+</script>
+</body>
+
+</html>
